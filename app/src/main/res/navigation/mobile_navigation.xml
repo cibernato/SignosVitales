@@ -12,14 +12,19 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
+        android:id="@+id/navigation_copyright"
         android:name="com.uancv.signosvitales.ui.dashboard.DashboardFragment"
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_dashboard" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
+        android:id="@+id/navigation_statistics"
         android:name="com.uancv.signosvitales.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
+    <fragment
+        android:id="@+id/navigation_reportarViewPager"
+        android:name="com.uancv.signosvitales.ui.reportar.ReportarViewPager"
+        android:label="fragment_reportar_view_pager"
+        tools:layout="@layout/fragment_reportar_view_pager" />
 </navigation>

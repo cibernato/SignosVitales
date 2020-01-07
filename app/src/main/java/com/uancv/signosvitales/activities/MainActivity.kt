@@ -1,12 +1,13 @@
-package com.uancv.signosvitales
+package com.uancv.signosvitales.activities
 
 import android.os.Bundle
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.uancv.signosvitales.R
 
 class MainActivity : AppCompatActivity() {
 
@@ -20,7 +21,11 @@ class MainActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         val appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications
+                R.id.navigation_home,
+                R.id.navigation_copyright,
+                R.id.navigation_statistics,
+                R.id.navigation_about_us,
+                R.id.navigation_reportarViewPager
             )
         )
         setupActionBarWithNavController(navController, appBarConfiguration)

@@ -1,19 +1,147 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:fitsSystemWindows="true">
 
-    <TextView
-        android:id="@+id/text_home"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/pacientes_icon"
+            android:layout_width="51dp"
+            android:layout_height="45dp"
+            android:src="@drawable/ic_user_icon"
+            app:layout_constraintBottom_toBottomOf="@+id/reportar_icon"
+            app:layout_constraintEnd_toStartOf="@+id/graficos_icon"
+            app:layout_constraintStart_toEndOf="@+id/reportar_icon"
+            app:layout_constraintTop_toTopOf="@+id/reportar_icon" />
+
+        <TextView
+            android:id="@+id/agregar_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Agregar"
+            app:layout_constraintEnd_toEndOf="@+id/agregar_icon"
+            app:layout_constraintHorizontal_bias="0.485"
+            app:layout_constraintStart_toStartOf="@+id/agregar_icon"
+            app:layout_constraintTop_toBottomOf="@+id/agregar_icon" />
+
+        <TextView
+            android:id="@+id/reportar_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Reportar"
+            app:layout_constraintEnd_toEndOf="@+id/reportar_icon"
+            app:layout_constraintHorizontal_bias="0.485"
+            app:layout_constraintStart_toStartOf="@+id/reportar_icon"
+            app:layout_constraintTop_toBottomOf="@+id/reportar_icon" />
+
+        <TextView
+            android:id="@+id/usuarios_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Usuarios"
+            app:layout_constraintEnd_toEndOf="@+id/usuarios_icon"
+            app:layout_constraintHorizontal_bias="0.485"
+            app:layout_constraintStart_toStartOf="@+id/usuarios_icon"
+            app:layout_constraintTop_toBottomOf="@+id/usuarios_icon" />
+
+        <TextView
+            android:id="@+id/graficos_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Graficos"
+            app:layout_constraintEnd_toEndOf="@+id/graficos_icon"
+            app:layout_constraintHorizontal_bias="0.485"
+            app:layout_constraintStart_toStartOf="@+id/graficos_icon"
+            app:layout_constraintTop_toBottomOf="@+id/graficos_icon" />
+
+        <TextView
+            android:id="@+id/ayuda_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Ayuda"
+            app:layout_constraintEnd_toEndOf="@+id/ayuda_icon"
+            app:layout_constraintHorizontal_bias="0.485"
+            app:layout_constraintStart_toStartOf="@+id/ayuda_icon"
+            app:layout_constraintTop_toBottomOf="@+id/ayuda_icon" />
+
+        <ImageView
+            android:id="@+id/ayuda_icon"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_help_icon"
+            app:layout_constraintBottom_toBottomOf="@+id/agregar_icon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.85"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/agregar_icon" />
+
+        <ImageView
+            android:id="@+id/reportar_icon"
+            android:layout_width="74dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/ic_add_icon"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.15"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.15" />
+
+        <ImageView
+            android:id="@+id/usuarios_icon"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="16dp"
+            android:src="@drawable/ic_users_icon"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.15"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/reportar_text" />
+
+        <TextView
+            android:id="@+id/pacientes_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Pacientes"
+            app:layout_constraintEnd_toEndOf="@+id/pacientes_icon"
+            app:layout_constraintHorizontal_bias="0.485"
+            app:layout_constraintStart_toStartOf="@+id/pacientes_icon"
+            app:layout_constraintTop_toBottomOf="@+id/pacientes_icon" />
+
+        <ImageView
+            android:id="@+id/agregar_icon"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_user_add_icon"
+            app:layout_constraintBottom_toBottomOf="@+id/usuarios_icon"
+            app:layout_constraintEnd_toStartOf="@+id/ayuda_icon"
+            app:layout_constraintStart_toEndOf="@+id/usuarios_icon"
+            app:layout_constraintTop_toTopOf="@+id/usuarios_icon" />
+
+        <ImageView
+            android:id="@+id/graficos_icon"
+            android:layout_width="72dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_bar_chart_icon"
+            app:layout_constraintBottom_toBottomOf="@+id/pacientes_icon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.85"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/pacientes_icon" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
