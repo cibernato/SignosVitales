@@ -1,9 +1,20 @@
 <resources>
     <string name="app_name">SignosVitales</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_dashboard" translatable="false">Dashboard</string>
+    <string name="title_notifications" translatable="false">Notifications</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
+    <string name="reportar_constantes_vitales">Reportar Constantes Vitales</string>
+    <string name="title_home">Inicio</string>
+    <string name="presione_aqui">Presione aqui</string>
+    <string name="fecha">Fecha</string>
+    <string name="hora">Hora</string>
+    <string name="temperatura">Temperatura</string>
+    <string name="respiracion">Respiracion</string>
+    <string name="pulso_cardiaco">Pulso Cardiaco</string>
+    <string name="presion_sanguinea">Presion sanguinea</string>
+    <string name="guardar_cambios">guardar cambios</string>
+    <string name="pacientes">Pacientes</string>
+    <string name="constantes">Constantes</string>
+    <string name="graficas">Graficas</string>
 </resources>

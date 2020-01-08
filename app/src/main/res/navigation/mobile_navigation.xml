@@ -25,6 +25,6 @@
     <fragment
         android:id="@+id/navigation_reportarViewPager"
         android:name="com.uancv.signosvitales.ui.reportar.ReportarViewPager"
-        android:label="fragment_reportar_view_pager"
+        android:label="@string/reportar_constantes_vitales"
         tools:layout="@layout/fragment_reportar_view_pager" />
 </navigation>

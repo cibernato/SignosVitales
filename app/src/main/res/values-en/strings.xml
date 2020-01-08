@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SignosVitales</string>
+    <string name="reportar_constantes_vitales">Report Vital Constants</string>
+    <string name="title_home">Home</string>
+    <string name="presione_aqui">Press here</string>
+    <string name="fecha">Date</string>
+    <string name="guardar_cambios">Save Changes</string>
+    <string name="hora">Hour</string>
+    <string name="presion_sanguinea">Blood Pressure</string>
+    <string name="pulso_cardiaco">Heart Beat</string>
+    <string name="respiracion">Breathing</string>
+    <string name="temperatura">Temperature</string>
+    <string name="constantes">Constants</string>
+    <string name="graficas">Graphics</string>
+    <string name="pacientes">Patients</string>
+
+</resources>
