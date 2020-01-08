@@ -1,7 +1,10 @@
 package com.uancv.signosvitales.utils
 
+import android.app.Activity
 import android.content.Context
+import android.util.DisplayMetrics
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 
 fun Context.toast(message: String) {
@@ -10,4 +13,18 @@ fun Context.toast(message: String) {
 
 fun Context.log(message: String) {
     Log.e(this.javaClass.simpleName, message)
+}
+fun View.getWidthDividedBy(ratio : Int):Int{
+    val displaymetrics = DisplayMetrics()
+    (this.context as Activity).windowManager.defaultDisplay.getMetrics(displaymetrics)
+    return  displaymetrics.widthPixels / ratio
+}
+fun View.getHeightDividedBy(ratio : Int):Int{
+    val displaymetrics = DisplayMetrics()
+    (this.context as Activity).windowManager.defaultDisplay.getMetrics(displaymetrics)
+    return  displaymetrics.heightPixels / ratio
+}
+fun View.setWidthAndHeightOfView(id :Int,width:Int,height :Int){
+    this.findViewById<View>(id).layoutParams.width= width
+    this.findViewById<View>(id).layoutParams.height= height
 }

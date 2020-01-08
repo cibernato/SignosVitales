@@ -51,7 +51,6 @@ class TracingFragment : Fragment() {
         yAxisData.forEachIndexed { index, i ->
             yAxisValues.add(PointValue(index.toFloat(), i.toFloat()))
         }
-        var x = "s".length ?: 1
         val line2 = Line(data2).setColor(Color.YELLOW)
         for (i in 0..10) {
             data2.add(PointValue(i.toFloat(), (i * 5).toFloat()))
