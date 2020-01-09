@@ -1,4 +1,4 @@
-package com.uancv.signosvitales.ui.reportar
+package com.uancv.signosvitales.ui.reportar.graficos
 
 
 import android.graphics.Color
@@ -8,17 +8,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.uancv.signosvitales.R
-import com.uancv.signosvitales.ui.reportar.graficos.RespFragment
-import com.uancv.signosvitales.ui.reportar.graficos.TempFragment
-import com.uancv.signosvitales.utils.log
-import kotlinx.android.synthetic.main.fragment_tracing.*
+import kotlinx.android.synthetic.main.fragment_temp.*
 import lecho.lib.hellocharts.model.*
-
 
 /**
  * A simple [Fragment] subclass.
  */
-class TracingFragment : Fragment() {
+class TempFragment : Fragment() {
     var axisData = arrayOf(
         "Jan",
         "Feb",
@@ -38,37 +34,18 @@ class TracingFragment : Fragment() {
     var data2 = arrayListOf<PointValue>()
     var axisValues = arrayListOf<AxisValue>()
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        fragmentManager!!.beginTransaction().add(R.id.chart, TempFragment()).addToBackStack("")
-            .commit()
-        return inflater.inflate(R.layout.fragment_tracing, container, false)
+        return inflater.inflate(R.layout.fragment_temp, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        generarGraficoLineas(2)
-        temp_button.setOnClickListener {
-            fragmentManager!!.popBackStack()
-            fragmentManager!!.beginTransaction().replace(R.id.chart, TempFragment()).commit()
-        }
-        resp_button.setOnClickListener {
-            fragmentManager!!.popBackStack()
-            fragmentManager!!.beginTransaction().replace(R.id.chart, RespFragment()).commit()
-
-//            generarGraficoLineas(10)
-        }
-        latidos_button.setOnClickListener {
-            log("${fragmentManager!!.backStackEntryCount}")
-            log("${fragmentManager!!.fragments}")
-            log("${fragmentManager!!.fragments.size}")
-        }
+        generarGraficoLineas(4)
     }
-
 
     private fun generarGraficoLineas(r: Int) {
 
@@ -98,7 +75,7 @@ class TracingFragment : Fragment() {
         yAxis.textColor = Color.BLUE
         yAxis.name = "Vamos bien"
 
-//        chart.lineChartData = data
+        lineChartView2.lineChartData = data
     }
 
 

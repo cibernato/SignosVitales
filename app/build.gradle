@@ -21,6 +21,16 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    buildTypes.each {
+        Properties properties = new Properties()
+        properties.load(project.rootProject.file("local.properties").newDataInputStream())
+        def tmdbApiKey = properties.getProperty("api_prueba", "")
+
+        it.buildConfigField 'String', "api_prueba", tmdbApiKey
+
+        it.resValue 'string', "api_key", tmdbApiKey
+
+    }
     compileOptions {
         sourceCompatibility = 1.8
         targetCompatibility = 1.8
@@ -29,6 +39,7 @@ android {
         jvmTarget = "1.8"
     }
 }
+
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -57,4 +68,8 @@ dependencies {
 
     //Andoird chart
     implementation 'com.github.lecho:hellocharts-library:1.5.8@aar'
+
+    //Volley
+    implementation 'com.squareup.retrofit2:retrofit:2.7.1'
+    implementation 'com.squareup.retrofit2:converter-gson:2.1.0'
 }

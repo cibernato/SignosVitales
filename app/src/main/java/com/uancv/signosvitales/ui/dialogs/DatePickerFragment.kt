@@ -14,11 +14,19 @@ import java.util.*
 
 
 class DatePickerFragment : DialogFragment() {
+
+    var dateString: String? = null
+    private lateinit var datePicker: DatePicker
+
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
 
         val v = LayoutInflater.from(activity)
             .inflate(R.layout.fragment_date_picker, null)
-        val datePicker = v.findViewById<DatePicker>(R.id.dialog_date_date_picker)
+        datePicker = v.findViewById(R.id.dialog_date_date_picker)
+        if (dateString != "") {
+            val fields = dateString!!.split("/")
+            datePicker.updateDate(fields[2].toInt(), fields[1].toInt(), fields[0].toInt())
+        }
         return AlertDialog.Builder(activity)
             .setView(v)
             .setTitle("Select date")
@@ -41,6 +49,15 @@ class DatePickerFragment : DialogFragment() {
             putExtra("date", sdf.format(date))
         }
         targetFragment?.onActivityResult(targetRequestCode, 159, intent)
+    }
+
+
+    companion object {
+        fun newInstace(date: String): DatePickerFragment {
+            return DatePickerFragment().apply {
+                dateString = date
+            }
+        }
     }
 
 }

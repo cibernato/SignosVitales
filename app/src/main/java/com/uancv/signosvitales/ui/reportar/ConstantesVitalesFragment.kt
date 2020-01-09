@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.google.android.material.textfield.TextInputLayout
 import com.uancv.signosvitales.R
+import com.uancv.signosvitales.activities.SharedViewModel
 import com.uancv.signosvitales.ui.dialogs.DatePickerFragment
 import com.uancv.signosvitales.ui.dialogs.TimePickerFragment
 import com.uancv.signosvitales.utils.getWidthDividedBy
@@ -24,7 +25,7 @@ import java.util.*
  */
 class ConstantesVitalesFragment : Fragment() {
 
-    lateinit var reportarViewModel: ReportarViewModel
+    lateinit var reportarViewModel: SharedViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,15 +33,18 @@ class ConstantesVitalesFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_constantes_vitales, container, false)
         inicializarVistas(view)
-        reportarViewModel =
-            ViewModelProviders.of(parentFragment!!).get(ReportarViewModel::class.java)
+        activity?.let {
+            reportarViewModel =
+                ViewModelProviders.of(it).get(SharedViewModel::class.java)
+        }
         return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         fecha_text.setOnClickListener {
-            val d = DatePickerFragment()
+            val d =
+                DatePickerFragment.newInstace(if (fecha_text.text.contains("/")) fecha_text.text.toString() else "")
             d.setTargetFragment(this, 159)
             d.show(fragmentManager!!, "")
         }
@@ -60,14 +64,13 @@ class ConstantesVitalesFragment : Fragment() {
                 val res = context!!.resources
                 val dm = res.displayMetrics
                 val conf = res.configuration
-                var language = if (conf.locale.language == "en") "es" else "en"
+                val language = if (conf.locale.language == "en") "es" else "en"
                 conf.setLocale(Locale(language))
                 res.updateConfiguration(conf, dm)
                 activity?.recreate()
             } catch (e: Exception) {
                 toast("$e + ${e.printStackTrace()}")
             }
-
         }
     }
 

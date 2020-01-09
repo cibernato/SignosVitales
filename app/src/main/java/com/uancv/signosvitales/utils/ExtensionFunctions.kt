@@ -7,6 +7,9 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.uancv.signosvitales.BuildConfig
+
+const val api = BuildConfig.api_prueba
 
 fun Fragment.toast(message: String) {
     Toast.makeText(context!!, message, Toast.LENGTH_LONG).show()

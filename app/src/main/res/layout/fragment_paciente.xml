@@ -18,10 +18,10 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
             android:layout_marginEnd="8dp"
             android:text="Ingrese los datos completos del paciente y pulse guardar."
             android:textAlignment="center"
-            app:layout_constraintBottom_toTopOf="@+id/textInputLayout2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -32,12 +32,13 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
             android:layout_marginEnd="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/guideline"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.3">
+            app:layout_constraintTop_toBottomOf="@+id/textView"
+            app:layout_constraintVertical_bias="0.0">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -120,10 +121,10 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
-            app:layout_constraintBottom_toBottomOf="@+id/textInputLayout4"
+            app:layout_constraintBottom_toBottomOf="@+id/fecha_nacimiento_paciente"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/guideline"
-            app:layout_constraintTop_toTopOf="@+id/textInputLayout4">
+            app:layout_constraintTop_toTopOf="@+id/fecha_nacimiento_paciente">
 
             <androidx.appcompat.widget.AppCompatAutoCompleteTextView
                 android:id="@+id/filled_exposed_dropdown"
@@ -134,7 +135,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textInputLayout4"
+            android:id="@+id/fecha_nacimiento_paciente"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -143,11 +144,15 @@
             android:layout_marginEnd="8dp"
             app:layout_constraintEnd_toStartOf="@+id/guideline"
             app:layout_constraintStart_toStartOf="parent"
+            android:clickable="true"
             app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:clickable="true"
+                android:editable="false"
+                android:focusable="false"
                 android:hint="F. Nacimiento" />
         </com.google.android.material.textfield.TextInputLayout>
 
