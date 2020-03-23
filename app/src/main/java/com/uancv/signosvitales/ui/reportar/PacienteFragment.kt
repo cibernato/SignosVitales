@@ -3,6 +3,7 @@ package com.uancv.signosvitales.ui.reportar
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -21,6 +22,7 @@ import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import kotlin.math.roundToInt
 
 
 /**
@@ -39,11 +41,15 @@ class PacienteFragment : Fragment() {
         activity?.let {
             sharedViewModel = ViewModelProviders.of(it).get(SharedViewModel::class.java)
         }
-        return inflater.inflate(R.layout.fragment_paciente, container, false)
+
+        val view = inflater.inflate(R.layout.fragment_paciente, container, false)
+        return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
         val COUNTRIES = arrayOf("Hombre", "Mujer")
         val adapter = ArrayAdapter(
             context!!,
@@ -58,7 +64,16 @@ class PacienteFragment : Fragment() {
             generarDialog()
         }
         button.setOnClickListener {
-            pruebaRetrofit()
+//            pruebaRetrofit()
+            log("${textInputLayout2.measuredHeight}")
+            val h =textInputLayout2.measuredHeight
+            log("$h")
+            val displayMetrics = context!!.resources.displayMetrics
+            val dp = (h / (displayMetrics.ydpi / DisplayMetrics.DENSITY_DEFAULT)).roundToInt()
+            log(dp.toString())
+            lupa_icon.layoutParams.height = dp
+            lupa_icon.layoutParams.width = dp
+            log("${lupa_icon.layoutParams.height}, ${lupa_icon.layoutParams.width}")
         }
 
     }

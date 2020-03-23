@@ -14,7 +14,7 @@
     <string name="pulso_cardiaco">Pulso Cardiaco</string>
     <string name="presion_sanguinea">Presion sanguinea</string>
     <string name="guardar_cambios">guardar cambios</string>
-    <string name="pacientes">Pacientes</string>
+    <string name="pacientes">Paciente</string>
     <string name="constantes">Constantes</string>
     <string name="graficas">Graficas</string>
 </resources>

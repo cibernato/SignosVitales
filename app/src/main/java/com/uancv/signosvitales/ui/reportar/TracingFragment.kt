@@ -38,6 +38,7 @@ class TracingFragment : Fragment() {
     var data2 = arrayListOf<PointValue>()
     var axisValues = arrayListOf<AxisValue>()
 
+    lateinit var botones :ArrayList<View?>
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -46,27 +47,39 @@ class TracingFragment : Fragment() {
         // Inflate the layout for this fragment
         fragmentManager!!.beginTransaction().add(R.id.chart, TempFragment()).addToBackStack("")
             .commit()
+        botones = arrayListOf()
         return inflater.inflate(R.layout.fragment_tracing, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        botones.add(temp_button)
+        botones.add(resp_button)
+        botones.add(latidos_button)
+        botones.add(presion_button)
         super.onViewCreated(view, savedInstanceState)
+        cambiarFondoDeView(temp_button)
         generarGraficoLineas(2)
         temp_button.setOnClickListener {
             fragmentManager!!.popBackStack()
             fragmentManager!!.beginTransaction().replace(R.id.chart, TempFragment()).commit()
+            cambiarFondoDeView(it)
         }
         resp_button.setOnClickListener {
             fragmentManager!!.popBackStack()
             fragmentManager!!.beginTransaction().replace(R.id.chart, RespFragment()).commit()
-
-//            generarGraficoLineas(10)
+            cambiarFondoDeView(it)
         }
         latidos_button.setOnClickListener {
-            log("${fragmentManager!!.backStackEntryCount}")
-            log("${fragmentManager!!.fragments}")
-            log("${fragmentManager!!.fragments.size}")
+            cambiarFondoDeView(it)
+            log("${it.isEnabled}")
         }
+    }
+
+    private fun cambiarFondoDeView(it: View?) {
+        botones.forEach {view ->
+            view?.isEnabled = view != it
+        }
+
     }
 
 
